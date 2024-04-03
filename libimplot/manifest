@@ -1,0 +1,15 @@
+: 1
+name: libimplot
+version: 0.1.0-a.0.z
+language: c++
+project: implot
+summary: implot C++ library
+license: MIT
+description-file: README.md
+url: https://github.com/epezent/implot
+email: michaelijah@gmail.com
+#build-error-email: michaelijah@gmail.com
+depends: * build2 >= 0.16.0
+depends: * bpkg >= 0.16.0
+
+depends: libimgui ^ 1.88.0

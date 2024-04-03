@@ -1,0 +1,7 @@
+project = libimplot
+
+using version
+using config
+using test
+using install
+using dist

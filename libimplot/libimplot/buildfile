@@ -1,0 +1,44 @@
+intf_libs = # Interface dependencies.
+import intf_libs += libimgui%lib{imgui}
+
+lib{implot}: {hxx ixx txx cxx}{** -version} hxx{version} $impl_libs $intf_libs
+
+hxx{version}: in{version} $src_root/manifest
+
+hxx{export}@./: cxx.importable = false
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+{hbmia obja}{*}: cxx.poptions += -DLIBIMPLOT_STATIC_BUILD
+{hbmis objs}{*}: cxx.poptions += -DLIBIMPLOT_SHARED_BUILD
+
+# Export options.
+#
+lib{implot}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.libs = $intf_libs
+}
+
+liba{implot}: cxx.export.poptions += -DLIBIMPLOT_STATIC
+libs{implot}: cxx.export.poptions += -DLIBIMPLOT_SHARED
+
+# For pre-releases use the complete version to make sure they cannot be used
+# in place of another pre-release or the final version. See the version module
+# for details on the version.* variable values.
+#
+if $version.pre_release
+  lib{implot}: bin.lib.version = "-$version.project_id"
+else
+  lib{implot}: bin.lib.version = "-$version.major.$version.minor"
+
+# Install into the libimplot/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx}{*}:
+{
+  install         = include/libimplot/
+  install.subdirs = true
+}

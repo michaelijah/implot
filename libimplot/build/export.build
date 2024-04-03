@@ -1,0 +1,6 @@
+$out_root/
+{
+  include libimplot/
+}
+
+export $out_root/libimplot/$import.target
