@@ -9,20 +9,20 @@
 // the end it's all trial and error.
 
 #if defined(LIBIMPLOT_STATIC)         // Using static.
-#  define LIBIMPLOT_SYMEXPORT
+#  define IMPLOT_API
 #elif defined(LIBIMPLOT_STATIC_BUILD) // Building static.
-#  define LIBIMPLOT_SYMEXPORT
+#  define IMPLOT_API
 #elif defined(LIBIMPLOT_SHARED)       // Using shared.
 #  ifdef _WIN32
-#    define LIBIMPLOT_SYMEXPORT __declspec(dllimport)
+#    define IMPLOT_API __declspec(dllimport)
 #  else
-#    define LIBIMPLOT_SYMEXPORT
+#    define IMPLOT_API
 #  endif
 #elif defined(LIBIMPLOT_SHARED_BUILD) // Building shared.
 #  ifdef _WIN32
-#    define LIBIMPLOT_SYMEXPORT __declspec(dllexport)
+#    define IMPLOT_API __declspec(dllexport)
 #  else
-#    define LIBIMPLOT_SYMEXPORT
+#    define IMPLOT_API
 #  endif
 #else
 // If none of the above macros are defined, then we assume we are being used
