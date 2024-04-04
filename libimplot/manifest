@@ -1,14 +1,16 @@
 : 1
 name: libimplot
-version: 0.1.0-a.0.z
+#version: 0.1.0-a.0.z
+version: 0.16.1
 language: c++
 project: implot
-summary: Build2 package attempt for implot C++ library
+summary: Immediate Mode Plotting
 license: MIT
 description-file: README.md
-url: https://github.com/michaelijah/implot
-email: michaelijah@gmail.com
-#build-error-email: michaelijah@gmail.com
+url: https://github.com/epezent/implot
+src-url: https://github.com/epezent/implot
+email: epezent16@gmail.com
+build-error-email: ru74d1q4@duck.com
 depends: * build2 >= 0.16.0
 depends: * bpkg >= 0.16.0
 
