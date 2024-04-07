@@ -1,7 +1,7 @@
 : 1
 name: libimplot
-#version: 0.1.0-a.0.z
-version: 0.16.1
+#version: 0.16.0-a.0.z
+version: 0.16.0
 language: c++
 project: implot
 summary: Immediate Mode Plotting
